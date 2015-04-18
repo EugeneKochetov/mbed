@@ -1122,6 +1122,15 @@ class MAX32600MBED(Target):
         self.supported_toolchains = ["GCC_ARM", "IAR", "ARM"]
         self.default_toolchain = "ARM"
 
+### Texas Instruments ###
+
+class STELLARIS_LM4F120XL(Target):
+    def __init__(self):
+        Target.__init__(self)
+        self.core = "Cortex-M4F"
+        self.extra_labels = ['TI', 'LM4F120H5QR']
+        self.supported_toolchains = ["GCC_ARM"]
+
 # Get a single instance for each target
 TARGETS = [
 
@@ -1234,6 +1243,9 @@ TARGETS = [
     ### Maxim Integrated ###
     MAXWSNENV(),
     MAX32600MBED(),
+
+    ### Texas Instruments ###
+    STELLARIS_LM4F120XL(),
 ]
 
 # Map each target name to its unique instance
